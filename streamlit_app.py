@@ -156,6 +156,7 @@ if company_info is not None:
         df['References'] = ''
         # Update the placeholder with the new DataFrame
         placeholder.dataframe(df)
+        df['Human Feedbacks'] = ''
     
 
 ######## Logic for searching dataframe ########
@@ -172,6 +173,12 @@ if data_search_button and 'df' in locals() and form_document is not None and com
         df.at[index, 'References'] = get_references_text(response)
         # Update the placeholder with the new DataFrame
         placeholder.dataframe(df)
+
+# Button to regenerate the CSV after incorporating human feedbacks
+regenerate_button = st.button('Regenerate CSV with Feedback')
+if regenerate_button and 'df' in locals():
+    # Assuming 'Human Feedbacks' column is manually updated in the UI before pressing the button
+    st.write("Sorry this feature is not yet implimented")
 
 
 ######## Logic for download final filled form ########
